@@ -1,0 +1,1276 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 0, 33);
+    color: white;
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navbar Styling */
+/* Base Styles for Navigation */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    background-color: rgb(17, 6, 92);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 23px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+a:hover {
+    color: aqua;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+/* Container for the name */
+.left {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 5px;
+    border: 2px solid #00e5ff;
+    border-radius: 8px;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
+}
+
+/* Default box styling */
+.name1 {
+    display: inline-block;
+    color: #00e5ff;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    font-size: 2rem;
+}
+
+/* Hover effect */
+.left:hover {
+    box-shadow: 0 0 15px 5px rgba(0, 229, 255, 0.5), 0 0 25px 10px rgba(0, 196, 228, 0.3);
+    border-color: #00c4e4;
+}
+
+.left:hover .name1 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.7), 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+
+
+
+
+/* Responsive Design */
+
+/* For Samsung Galaxy S8+ (360px to 767px) */
+@media (max-width: 767px) {
+    nav {
+        flex-direction: column; 
+        height: auto; 
+    }
+
+    nav ul {
+        flex-direction: column; 
+        margin: 10px 0; 
+    }
+
+    nav ul li {
+        margin: 10px 0; 
+    }
+
+    a {
+        font-size: 1rem; 
+    }
+
+    .left {
+        font-size: 1.3rem; 
+    }
+}
+
+/* For iPad Mini (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    nav {
+        flex-direction: row; 
+        height: 80px; 
+    }
+
+    nav ul {
+        flex-direction: row; 
+    }
+
+    nav ul li {
+        margin: 0 15px; 
+    }
+
+    a {
+        font-size: 1.1rem; 
+    }
+
+    .left {
+        font-size: 1.4rem; 
+    }
+}
+
+/* For Desktop/Laptop (1024px and above) */
+@media (min-width: 1024px) {
+    nav {
+        flex-direction: row; 
+        height: 80px; 
+    }
+
+    nav ul {
+        flex-direction: row; 
+    }
+
+    nav ul li {
+        margin: 0 23px; 
+    }
+
+    a {
+        font-size: 1.1rem; 
+    }
+
+    .left {
+        font-size: 1.5rem; 
+    }
+}
+
+
+/* First Section */
+.firstsection {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    margin: 20px;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #001a3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+/* Container for the intro text */
+.leftsection {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.leftsection div {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Staggered animation for each line */
+.leftsection div:nth-child(1) {
+    animation-delay: 0.5s;
+}
+.leftsection div:nth-child(2) {
+    animation-delay: 1.5s;
+}
+.leftsection div:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for your name */
+.name {
+    color: #00e5ff;
+    font-weight: bold;
+    font-size: 2.2rem;
+    transition: color 0.3s ease;
+}
+.web{
+    color:#00e5ff ;
+}
+.name:hover {
+    color: #9c97f1;
+}
+.firstsection > div {
+    width: 45%;
+}
+.social-icon {
+    position: relative; /* Required for positioning child elements */
+}
+
+.social-icon::after {
+    content: attr(data-name); /* Takes the name from data-name attribute */
+    position: absolute;
+    bottom: 110%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    opacity: 0; 
+    background-color: #007acc;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap; 
+}
+
+.social-icon:hover::after {
+    opacity: 1; 
+    bottom: 120%; 
+}
+
+.resume-button .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color:  #4CAF50; 
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.resume-button .btn:hover {
+    background-color: #9c97f1;
+    transform: translateY(-5px); 
+}
+
+.rightsection img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #ddd;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect on Image */
+.rightsection img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* Responsive Design */
+
+/* For Samsung Galaxy S8+ (360px to 767px) */
+@media (max-width: 767px) {
+    .firstsection {
+        flex-direction: column; 
+        padding: 20px; 
+        align-items: center; 
+    }
+
+    .firstsection > div {
+        width: 90%; 
+        margin: 10px 0; 
+    }
+
+    .leftsection {
+        font-size: 2rem; 
+        text-align: center; 
+    }
+
+    .resume-button .btn {
+        padding: 10px 20px; 
+        font-size: 1rem; 
+    }
+
+    .rightsection img {
+        max-width: 250px; 
+    }
+}
+
+/* For iPad Mini (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .firstsection {
+        flex-direction: row; 
+        padding: 30px; 
+    }
+
+    .firstsection > div {
+        width: 45%; 
+    }
+
+    .leftsection {
+        font-size: 2.2rem; 
+    }
+
+    .resume-button .btn {
+        padding: 12px 25px;
+        font-size: 1.1rem; 
+    }
+
+    .rightsection img {
+        max-width: 350px; 
+    }
+}
+
+/* For Desktop/Laptop (1024px and above) */
+@media (min-width: 1024px) {
+    .firstsection {
+        flex-direction: row; 
+        padding: 40px; 
+    }
+
+    .firstsection > div {
+        width: 45%; 
+    }
+
+    .leftsection {
+        font-size: 2.5rem; 
+    }
+
+    .resume-button .btn {
+        padding: 12px 30px; 
+        font-size: 1.2rem; 
+    }
+
+    .rightsection img {
+        max-width: 400px; /* Maintain original image size */
+    }
+}
+
+
+/* HR Styling */
+main hr {
+    border: 0;
+    background-color: #9c97f1;
+    height: 1.2px;
+    margin: 40px 84px;
+}
+
+/* Section Styling */
+.secondsection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #001a3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-height: 100vh;
+}
+
+/* Left Side (Image) */
+.left1 img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #ddd;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/*Hover Effect on Image*/
+.left1 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Side (Text) */
+.right2 {
+    max-width: 50%;
+    text-align: left;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+}
+.right2 h1{
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+
+ }
+ .right2 span {
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+/* Headline Styling */
+.right2 h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color:  #fff;; 
+    text-decoration:  none;
+}
+.right2  h3 span{
+    color: #00e5ff;
+    font-weight: bold;
+}
+    .hidden {
+        display: none; 
+    }
+    
+    #more:target {
+        display: inline; 
+    }
+    
+    
+    .read-more-link {
+        color: #3498db;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+    }
+    
+    .read-more-link:hover {
+        color: #1abc9c; 
+    }
+    
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    .firstsection, .secondsection {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .firstsection > div, .secondsection > div {
+        width: 90%;
+    }
+
+    .leftsection {
+        font-size: 2.5rem;
+    }
+
+    .right2 {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .rightsection img, .left1 img {
+        max-width: 300px;
+    }
+
+    .leftsection {
+        font-size: 2rem;
+    }
+
+    .right2 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rightsection img, .left1 img {
+        max-width: 250px;
+    }
+
+    .leftsection {
+        font-size: 1.8rem;
+    }
+
+    .right2 {
+        font-size: 14px;
+    }
+}
+
+
+/* skill section*/
+.skills-section {
+    padding: 40px;
+    margin: 30px;
+    border-radius: 10px;
+    background-color: #001a3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+}
+ .skills-section h1{
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+
+ }
+ .skills-section span{
+    color: #00e5ff;
+    font-weight: bold;
+
+ }
+
+.section-title {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-left {
+    flex-basis: 60%;
+}
+
+.skills-right {
+    flex-basis: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* Skills Image */
+.skills-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.skills-image:hover {
+    transform: rotateY(180deg);
+}
+
+/* Skill line container */
+.skill-wrapper {
+    margin-bottom: 40px;
+}
+
+.skill-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.skill-label {
+    font-size: 1.2rem;
+    color: white;
+    flex-basis: 20%;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.percentage {
+    font-size: 1.2rem;
+    color: #a41010;
+    margin-left: 10px;
+    flex-basis: 10%;
+    text-align: right;
+}
+
+.line {
+    position: relative;
+    width: 70%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    display: flex;
+}
+
+.fill {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 5px;
+    transition: width 1.2s ease-in-out, background-color 0.5s ease;
+    width: calc(var(--percentage) * 1%);
+}
+
+/* Widths for skill bars based on data-percentage */
+.skill-line[data-percentage="90"] .fill { width: 90%; }
+.skill-line[data-percentage="85"] .fill { width: 85%; }
+.skill-line[data-percentage="80"] .fill { width: 80%; }
+.skill-line[data-percentage="75"] .fill { width: 75%; }
+.skill-line[data-percentage="95"] .fill { width: 95%; }
+.skill-line[data-percentage="88"] .fill { width: 88%; }
+
+/* Responsive Design */
+
+/* For Samsung Galaxy S8+ (360px to 767px) */
+@media (max-width: 767px) {
+    .skills-section {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .skills-left, .skills-right {
+        flex-basis: 100%;
+    }
+
+    .skills-image {
+        max-width: 80%;
+    }
+
+    .skill-label,
+    .percentage {
+        font-size: 1rem;
+    }
+
+    .line {
+        height: 8px;
+    }
+}
+
+/* For iPad Mini (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .skills-section {
+        padding: 30px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .skills-left, .skills-right {
+        flex-basis: 100%;
+    }
+
+    .skills-image {
+        max-width: 90%;
+    }
+
+    .skill-label,
+    .percentage {
+        font-size: 1.1rem;
+    }
+
+    .line {
+        height: 9px;
+    }
+}
+
+/* For Desktop/Laptop (1024px and above) */
+@media (min-width: 1024px) {
+    .skills-section {
+        padding: 40px;
+    }
+
+    .skills-container {
+        flex-direction: row;
+    }
+
+    .skills-left {
+        flex-basis: 60%;
+    }
+
+    .skills-right {
+        flex-basis: 35%;
+    }
+
+    .skill-label,
+    .percentage {
+        font-size: 1.2rem;
+    }
+
+    .line {
+        height: 10px;
+    }
+}
+
+
+.social-icon {
+    font-size: 2rem;
+    color: rgb(226, 26, 26);
+    margin: 15px 20px;
+    display: inline-block;
+    position: relative; /* Needed for the name label */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/*certificate section*/
+
+/* Base Styles */
+.certificates-section {
+    justify-content: space-around;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #001a3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.certificates-section h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    
+}
+.certificates-section span{
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+/* Grid styling for certificates */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #0b3b7d;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #f1ebeb;
+    font-weight: 300;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+
+/* For Samsung Galaxy S8+ (360px and above) */
+@media (max-width: 767px) {
+    .certificates-section {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+}
+
+/* For iPad Mini (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .certificates-section {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card p {
+        font-size: 1.05rem;
+    }
+}
+
+/* For Desktop/Laptop (1024px and above) */
+@media (min-width: 1024px) {
+    .certificates-section {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card p {
+        font-size: 1.1rem;
+    }
+}
+
+/*project section*/
+/* Base Styles */
+.My-projects {
+    border-radius: 10px;
+    background-color: #001a3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    margin: 20px;
+}
+
+.container-1 {
+    width: 90%;
+    text-align: center;
+}
+
+ .My-projects h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+
+    
+}
+.My-projects span{
+    color: #00e5ff;
+    font-weight: bold;
+
+}
+
+.cards-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card-1 {
+    width: 370px;
+    height: 240px;
+    background-color: #0b3b7d;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card-1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-1-content {
+    padding: 30px;
+    text-align: left;
+}
+
+.card-1 h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.card-1 p {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.My-projects a {
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.My-projects a:hover {
+    background-color: #9c97f1;
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+
+/* For Samsung Galaxy S8+ (360px and above) */
+@media (max-width: 767px) {
+    .container-1 {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cards-1 {
+        justify-content: center;
+    }
+
+    .card-1 {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .card-1-content {
+        padding: 20px;
+    }
+
+    .My-projects a {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+}
+
+/* For iPad Mini (768px and above) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container-1 {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .cards-1 {
+        justify-content: space-around;
+    }
+
+    .card-1 {
+        width: 45%;
+        max-width: 300px;
+        height: 220px;
+    }
+
+    .My-projects a {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+}
+
+/* For Desktop/Laptop (1024px and above) */
+@media (min-width: 1024px) {
+    .container-1 {
+        width: 75%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .cards-1 {
+        gap: 30px;
+    }
+
+    .card-1 {
+        width: 30%;
+        max-width: 370px;
+    }
+
+    .My-projects a {
+        padding: 5px 20px;
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Base Styles */
+.contacts {
+    border-radius: 10px;
+    background-color: #001a3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    margin: 20px;
+    text-align: center;
+}
+
+.contacts h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.contacts h1 span {
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 50px auto;
+    width: 60%;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #2e3b4d;
+    border: none;
+    border-radius: 5px;
+    color: #ccc;
+    font-size: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #757575;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border: 2px solid #00e5ff;
+    background-color: #1c2733;
+    color: #fff;
+}
+
+button {
+    background-color: #00e5ff;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+}
+
+button:hover {
+    background-color: #00c4e4;
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.6);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/*footer section*/
+footer {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #1e2a38;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-container p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;
+}
+
+.social-icon {
+    font-size: 1.8rem;
+    color: #fff;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+    color: #00e5ff;
+    transform: scale(1.2);
+}
+
+.social-icon i {
+    pointer-events: none;
+}
+
+.footer-container p:hover {
+    color: #00e5ff;
+}
+
+/* Responsive Design */
+
+/* For Samsung Galaxy S8+ (360px and above) */
+@media (max-width: 767px) {
+    .contact-form {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contacts h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 100%;
+    }
+    
+    .social-icons {
+        gap: 20px;
+    }
+
+    .social-icon {
+        font-size: 1.5rem;
+    }
+
+    .footer-container p {
+        font-size: 0.8rem;
+    }
+}
+
+/* For iPad Mini (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .contact-form {
+        width: 80%;
+        margin: 30px auto;
+    }
+
+    .contacts h1 {
+        font-size: 2.2rem;
+    }
+
+    button {
+        width: 60%;
+    }
+}
+
+/* For Desktop/Laptop (1024px and above) */
+@media (min-width: 1024px) {
+    .contact-form {
+        width: 60%;
+    }
+
+    .contacts h1 {
+        font-size: 2.5rem;
+    }
+
+    button {
+        width: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
